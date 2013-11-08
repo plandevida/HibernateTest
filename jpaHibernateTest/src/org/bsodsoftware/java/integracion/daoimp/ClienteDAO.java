@@ -5,13 +5,6 @@ import org.bsodsoftware.java.integracion.DAOinteface;
 
 public class ClienteDAO implements DAOinteface {
 	
-//	private ClienteTransfer cliente;
-//	
-//	public ClienteDAO(ClienteTransfer cliente) {
-//		
-//		this.cliente = cliente;
-//	}
-	
 	@Override
 	public Integer crear(ClienteTransfer cliente) {
 
