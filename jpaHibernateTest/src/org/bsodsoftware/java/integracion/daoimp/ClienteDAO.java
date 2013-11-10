@@ -1,7 +1,7 @@
 package org.bsodsoftware.java.integracion.daoimp;
 
-import org.bsodsoftware.java.ClienteTransfer;
 import org.bsodsoftware.java.integracion.DAOinteface;
+import org.bsodsoftware.java.modelo.ClienteTransfer;
 
 public class ClienteDAO implements DAOinteface {
 	
