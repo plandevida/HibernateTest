@@ -1,4 +1,4 @@
-package org.bsodsoftware.java.modelo;
+package org.bsodsoftware.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

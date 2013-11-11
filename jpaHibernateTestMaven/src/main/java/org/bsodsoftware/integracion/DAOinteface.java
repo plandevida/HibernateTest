@@ -1,6 +1,6 @@
-package org.bsodsoftware.java.integracion;
+package org.bsodsoftware.integracion;
 
-import org.bsodsoftware.java.modelo.ClienteTransfer;
+import org.bsodsoftware.modelo.ClienteTransfer;
 import org.hibernate.Session;
 
 public interface DAOinteface {

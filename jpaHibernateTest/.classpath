@@ -11,7 +11,11 @@
 	<classpathentry kind="lib" path="lib/required/commons-compress-1.5.jar"/>
 	<classpathentry kind="lib" path="lib/required/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="lib/required/hibernate-commons-annotations-4.0.4.Final.jar"/>
-	<classpathentry kind="lib" path="lib/required/hibernate-core-4.2.6.Final.jar"/>
+	<classpathentry kind="lib" path="lib/required/hibernate-core-4.2.6.Final.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://docs.jboss.org/hibernate/orm/4.2/javadocs/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/required/jackson-core-asl-1.9.2.jar"/>
 	<classpathentry kind="lib" path="lib/required/jackson-mapper-asl-1.9.2.jar"/>
 	<classpathentry kind="lib" path="lib/required/javassist-3.15.0-GA.jar"/>
