@@ -1,11 +1,10 @@
 package org.bsodsoftware.java.modelo;
 
-public class FactoriaSA implements FactoriaSAinterface {
+public class FactoriaSA {
 
 	private static FactoriaSA factoria = null;
 	
-	@Override
-	public FactoriaSAinterface getInstance() {
+	public static FactoriaSA getInstance() {
 		
 		if ( factoria == null ) {
 			factoria = new FactoriaSA();
@@ -13,7 +12,6 @@ public class FactoriaSA implements FactoriaSAinterface {
 		return factoria;
 	}
 
-	@Override
 	public SACliente getSACliente() {
 		
 		return new SACliente();
