@@ -9,6 +9,7 @@
 		<id name="id">
 			<generator class="native"/>
 		</id>
+		<property name="DNI" column="DNI"/>
 	</class>
 	
 </hibernate-mapping>

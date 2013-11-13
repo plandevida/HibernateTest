@@ -18,7 +18,7 @@ public class ClienteDAO implements DAOinteface {
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
 		
-		session.save( "ClienteTransfer", cliente );
+		session.save(cliente);
 		
 		session.getTransaction().commit();
 		
@@ -43,7 +43,7 @@ public class ClienteDAO implements DAOinteface {
 		
 		session.beginTransaction();
 		
-		Criteria query = session.createCriteria("ClienteTransfer");
+		Criteria query = session.createCriteria(ClienteTransfer.class.getName());
 		
 		query.add(Restrictions.eq("id", id));
 		
