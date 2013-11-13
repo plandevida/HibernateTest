@@ -5,9 +5,9 @@ import org.hibernate.Session;
 
 public interface DAOinteface {
 
-	public Integer crear(ClienteTransfer cliente, Session session);
+	public Integer crear(String DNI, String nombre, String telefono, String direccion, Session session);
 
-	public Integer actualizar(ClienteTransfer cliente, Session session);
+	public void actualizar(Integer id, String DNI, String nombre, String telefono, String direccion, Session session);
 
 	public ClienteTransfer consultar(Integer id, Session session);
 

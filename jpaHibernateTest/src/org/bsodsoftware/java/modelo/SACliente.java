@@ -19,23 +19,45 @@ public class SACliente {
 		
 		Session session = sessionFactory.openSession();
 		
-		Integer clienteID = new ClienteDAO().crear(cliente, session);
+		Integer clienteID = new ClienteDAO().crear(cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), session);
+
+		session.close();
 		
 		return clienteID;
 	}
 
 	public ClienteTransfer consultar(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		if ( session == null ) {
+			session = sessionFactory.openSession();
+			
+			System.out.println("AVISO: recreada la sesión");
+		}
+		
+		ClienteTransfer cliente = new ClienteDAO().consultar(id, session);
+		
+		session.close();
+		
+		return cliente;
 	}
 
-	public void editar(ClienteTransfer o) {
-		// TODO Auto-generated method stub
+	public void editar(ClienteTransfer cliente) {
 		
+		Session session = sessionFactory.openSession();
+		
+		new ClienteDAO().actualizar(cliente.getId(), cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), session);
+
+		session.close();
 	}
 
 	public void borrar(Integer id) {
-		// TODO Auto-generated method stub
 		
+		Session session = sessionFactory.openSession();
+		
+		new ClienteDAO().borrar(id, session);
+		
+		session.close();
 	}
 }
