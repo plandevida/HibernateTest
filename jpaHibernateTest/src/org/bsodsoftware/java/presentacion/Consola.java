@@ -37,10 +37,107 @@ public class Consola {
 		System.out.println("Acciones:");
 		System.out.println("\t c - Crar un cliente");
 		System.out.println("\t o - Consultar un cliente");
-		System.out.println("\t a - Actualizar un cliente");
+		System.out.println("\t m - Modificar un cliente");
 		System.out.println("\t b - Borrar un cliente");
 		System.out.println("\t r - Repetir última acción");
 		System.out.println("\t q - Salir");
+	}
+	
+	private void crearCliente() throws IOException {
+
+		factoria = FactoriaSA.getInstance();
+		
+		System.out.println("Introduzca el DNI del cliente: ");
+		String DNI = lector.readLine();
+		
+		System.out.println("Introduzca el nombre del cliente: ");
+		String nombre = lector.readLine();
+
+		System.out.println("Introduzca el telefono del cliente: ");
+		String telefono = lector.readLine();
+		
+		System.out.println("Introduzca la dirección del cliente: ");
+		String direccion = lector.readLine();
+		
+		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
+		
+		Integer idCliente = factoria.getSACliente().crear(cliente);
+		
+		System.out.println("CLIENTE CREADO con id: " + idCliente);
+	}
+	
+	private void consultarCliente() throws IOException {
+		
+		factoria = FactoriaSA.getInstance();
+		
+		System.out.println("Introduzca el ID del cliente: ");
+		String id = lector.readLine();
+		
+		Integer idCliente = null;
+		try {
+			idCliente = Integer.valueOf(id);
+		}
+		catch (NumberFormatException ne) {
+			ne.printStackTrace();
+		}
+		
+		ClienteTransfer cliente = factoria.getSACliente().consultar(idCliente);
+		
+		System.out.println(cliente);
+	}
+	
+	private void modificarCliente() throws IOException {
+		
+		factoria = FactoriaSA.getInstance();
+		
+		System.out.println("Introduzca el ID del cliente a modificar: ");
+		String id_cadena = lector.readLine();
+		
+		Integer idCliente = null;
+		try {
+			idCliente = Integer.valueOf(id_cadena);
+		}
+		catch (NumberFormatException ne) {
+			ne.printStackTrace();
+		}
+		
+		System.out.println("Introduzca el DNI del cliente: ");
+		String DNI = lector.readLine();
+		
+		System.out.println("Introduzca el nombre del cliente: ");
+		String nombre = lector.readLine();
+
+		System.out.println("Introduzca el telefono del cliente: ");
+		String telefono = lector.readLine();
+		
+		System.out.println("Introduzca la dirección del cliente: ");
+		String direccion = lector.readLine();
+		
+		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, idCliente);
+		
+		factoria.getSACliente().editar(cliente);
+		
+		System.out.println("Compruebe que el cliente se ha editado correctamente");
+	}
+	
+	private void borrarCliente() throws IOException {
+		
+		factoria = FactoriaSA.getInstance();
+		
+		System.out.println("Introduzca el ID del cliente: ");
+		String id = lector.readLine();
+		
+		Integer idCliente = null;
+		try {
+			idCliente = Integer.valueOf(id);
+		}
+		catch (NumberFormatException ne) {
+			ne.printStackTrace();
+		}
+		
+		factoria.getSACliente().borrar(idCliente);
+		
+		System.out.println("Compruebe que el cliente no existe");
 	}
 	
 	private void acciones(String comando) throws IOException {
@@ -48,23 +145,36 @@ public class Consola {
 		switch (comando) {
 			
 		case "c":
-			factoria = FactoriaSA.getInstance();
 			
-			System.out.println("Introduzca el DNI del cliente: ");
-			String DNI = lector.readLine();
+			crearCliente();
 			
-			System.out.println("Introduzca el nombre del cliente: ");
-			String nombre = lector.readLine();
-
-			System.out.println("Introduzca el telefono del cliente: ");
-			String telefono = lector.readLine();
+			break;
 			
-			System.out.println("Introduzca la dirección del cliente: ");
-			String direccion = lector.readLine();
+		case "o":
 			
-			ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
+			consultarCliente();
 			
-			factoria.getSACliente().crear(cliente);
+			break;
+			
+		case "m":
+			
+			modificarCliente();
+			
+			break;
+			
+		case "b":
+			
+			borrarCliente();
+			
+			break;
+			
+		case "r":
+			
+			acciones(ultimoComando);
+			
+			break;
 		}
+		
+		ultimoComando = comando;
 	}
 }

@@ -14,6 +14,10 @@ public class ClienteTransfer {
 	private Integer id;
 //	private Departamento departamento;
 	
+	public ClienteTransfer() {
+		
+	}
+	
 	public ClienteTransfer(String DNI, String nombre, String telefono, String direccion, Integer id) {
 		
 		this.DNI = DNI;
@@ -54,5 +58,8 @@ public class ClienteTransfer {
 		this.id = id;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return id + " " + DNI + " " + nombre + " " + telefono + " " + direccion;
+	}
 }

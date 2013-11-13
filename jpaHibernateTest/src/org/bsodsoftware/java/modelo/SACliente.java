@@ -5,43 +5,37 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SACliente implements CRUDinterface {
+public class SACliente {
 
 	SessionFactory sessionFactory;
 	
+	@SuppressWarnings("deprecation")
 	public SACliente() {
 		
 		sessionFactory = new Configuration().configure().buildSessionFactory();
 	}
 	
-	@Override
-	public Integer crear(Object o) {
+	public Integer crear(ClienteTransfer cliente) {
 		
 		Session session = sessionFactory.openSession();
-		
-		ClienteTransfer cliente = (ClienteTransfer) o;
 		
 		Integer clienteID = new ClienteDAO().crear(cliente, session);
 		
 		return clienteID;
 	}
 
-	@Override
-	public Object consultar(Integer id) {
+	public ClienteTransfer consultar(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void editar(Object o) {
+	public void editar(ClienteTransfer o) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
