@@ -1,10 +1,10 @@
-package org.bsodsoftware.modelo;
+package org.bsodsoftware.java.modelo;
 
-public class FactoriaSA implements FactoriaSAinterface {
+public class FactoriaSA {
 
 	private static FactoriaSA factoria = null;
-
-	public FactoriaSAinterface getInstance() {
+	
+	public static FactoriaSA getInstance() {
 		
 		if ( factoria == null ) {
 			factoria = new FactoriaSA();

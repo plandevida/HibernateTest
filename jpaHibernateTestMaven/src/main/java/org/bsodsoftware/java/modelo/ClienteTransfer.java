@@ -1,18 +1,15 @@
-package org.bsodsoftware.modelo;
+package org.bsodsoftware.java.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table( name = "clientes" )
 public class ClienteTransfer {
 
 	private String nombre, telefono, direccion, DNI;
-	
-	@Id
 	private Integer id;
+	
 //	private Departamento departamento;
+	
+	// Constructor para hibernate
+	public ClienteTransfer() {	}
 	
 	public ClienteTransfer(String DNI, String nombre, String telefono, String direccion, Integer id) {
 		
@@ -54,5 +51,8 @@ public class ClienteTransfer {
 		this.id = id;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return id + " " + DNI + " " + nombre + " " + telefono + " " + direccion;
+	}
 }
