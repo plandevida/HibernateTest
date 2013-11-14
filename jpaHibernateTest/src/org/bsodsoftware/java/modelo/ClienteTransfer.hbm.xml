@@ -10,6 +10,9 @@
 			<generator class="native"/>
 		</id>
 		<property name="DNI" column="DNI"/>
+		<property name="nombre" column="nombre"/>
+		<property name="telefono" column="telefono"/>
+		<property name="direccion" column="direccion"/>
 	</class>
 	
 </hibernate-mapping>

@@ -25,9 +25,11 @@ public class SACliente {
 	public Integer crear(ClienteTransfer cliente) {
 		
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
 		Integer clienteID = new ClienteDAO().crear(cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), session);
-
+		
+		session.getTransaction().commit();
 		session.close();
 		
 		return clienteID;
@@ -36,9 +38,11 @@ public class SACliente {
 	public ClienteTransfer consultar(Integer id) {
 		
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
 		ClienteTransfer cliente = new ClienteDAO().consultar(id, session);
 		
+		session.getTransaction().commit();
 		session.close();
 		
 		return cliente;
@@ -47,18 +51,22 @@ public class SACliente {
 	public void editar(ClienteTransfer cliente) {
 		
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
 		new ClienteDAO().actualizar(cliente.getId(), cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), session);
 
+		session.getTransaction().commit();
 		session.close();
 	}
 
 	public void borrar(Integer id) {
 		
 		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
 		new ClienteDAO().borrar(id, session);
 		
+		session.getTransaction().commit();
 		session.close();
 	}
 }

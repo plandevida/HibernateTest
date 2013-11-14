@@ -40,6 +40,7 @@ public class Consola {
 		System.out.println("\t m - Modificar un cliente");
 		System.out.println("\t b - Borrar un cliente");
 		System.out.println("\t r - Repetir última acción");
+		System.out.println("\t h - Ver este menú");
 		System.out.println("\t q - Salir");
 	}
 	
@@ -171,6 +172,12 @@ public class Consola {
 		case "r":
 			
 			acciones(ultimoComando);
+			
+			break;
+			
+		case "h":
+			
+			menu();
 			
 			break;
 		}
