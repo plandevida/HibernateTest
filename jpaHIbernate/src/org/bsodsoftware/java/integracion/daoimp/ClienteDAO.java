@@ -1,12 +1,15 @@
 package org.bsodsoftware.java.integracion.daoimp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
 
 import org.bsodsoftware.java.integracion.DAOinteface;
 import org.bsodsoftware.java.modelo.ClienteTransfer;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 public class ClienteDAO implements DAOinteface {
 	
@@ -28,19 +31,22 @@ public class ClienteDAO implements DAOinteface {
 		entityManager.merge(cliente);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public ClienteTransfer consultar(Integer id, EntityManager entityManager) {
 		
-		String queryPura = "SELECT * FROM clientes WHERE id=?";
+		CriteriaBuilder criteriaB = entityManager.getCriteriaBuilder();
 		
-		queryPura.replace("?", String.valueOf(id) );
+		criteriaB.equ
 		
-		Query query = entityManager.createQuery(queryPura);
-		
-		List<ClienteTransfer> lista = query.getResultList();
-		
-		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
+//		String queryPura = "SELECT * FROM clientes WHERE id=?";
+//		
+//		queryPura.replace("?", String.valueOf(id) );
+//		
+//		Query query = entityManager.createQuery(queryPura);
+//		
+//		List<ClienteTransfer> lista = query.getResultList();
+//		
+//		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
 	}
 	
 	@Override

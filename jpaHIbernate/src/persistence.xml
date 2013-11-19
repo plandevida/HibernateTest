@@ -8,7 +8,9 @@ http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
  version="1.0">
  
  <persistence-unit name="hibernate-unit">
+ 
 	 <provider>org.hibernate.ejb.HibernatePersistence</provider>
+	 
 	 <properties>
 		 <property name="hibernate.show_sql" value="true"/>
 		 <property name="hibernate.format_sql" value="false"/>
