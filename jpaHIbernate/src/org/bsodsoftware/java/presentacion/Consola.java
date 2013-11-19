@@ -57,7 +57,7 @@ public class Consola {
 		System.out.println("Introduzca el telefono del cliente: ");
 		String telefono = lector.readLine();
 		
-		System.out.println("Introduzca la dirección del cliente: ");
+		System.out.println("Introduzca la direcci��n del cliente: ");
 		String direccion = lector.readLine();
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
@@ -111,7 +111,7 @@ public class Consola {
 		System.out.println("Introduzca el telefono del cliente: ");
 		String telefono = lector.readLine();
 		
-		System.out.println("Introduzca la dirección del cliente: ");
+		System.out.println("Introduzca la direcci��n del cliente: ");
 		String direccion = lector.readLine();
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, idCliente);

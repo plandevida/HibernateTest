@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity
 @Table(name = "clientes")
 public class ClienteTransfer {
@@ -17,7 +19,7 @@ public class ClienteTransfer {
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
 	
-	@Column(name = "telefono")
+	@NotNull
 	private String telefono;
 	private String direccion;
 	
