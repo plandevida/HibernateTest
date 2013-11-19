@@ -1,12 +1,28 @@
 package org.bsodsoftware.java.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "clientes")
 public class ClienteTransfer {
 
-	private String nombre, telefono, direccion, DNI;
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
-//	private Departamento departamento;
+	@Column(name = "nombre", nullable = false)
+	private String nombre;
+	
+	@Column(name = "telefono")
+	private String telefono;
+	private String direccion;
+	
+	@Column(name = "dni", nullable = false)
+	private String DNI;
 	
 	// Constructor para hibernate
 	public ClienteTransfer() {	}
