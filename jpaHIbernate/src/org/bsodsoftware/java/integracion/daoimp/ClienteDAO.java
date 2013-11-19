@@ -1,52 +1,53 @@
 package org.bsodsoftware.java.integracion.daoimp;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.bsodsoftware.java.integracion.DAOinteface;
 import org.bsodsoftware.java.modelo.ClienteTransfer;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 
 public class ClienteDAO implements DAOinteface {
 	
 	@Override
-	public Integer crear(String DNI, String nombre, String telefono, String direccion, Session session) {
+	public Integer crear(String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
 		
-		session.save(cliente);
+		entityManager.persist(cliente);
 		
 		return cliente.getId();
 	}
 	
 	@Override
-	public void actualizar(Integer id, String DNI, String nombre, String telefono, String direccion, Session session) {
+	public void actualizar(Integer id, String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, id);
 		
-		session.update( cliente );
+		entityManager.merge(cliente);
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public ClienteTransfer consultar(Integer id, Session session) {
+	public ClienteTransfer consultar(Integer id, EntityManager entityManager) {
 		
-		Criteria query = session.createCriteria(ClienteTransfer.class.getName());
+		String queryPura = "SELECT * FROM clientes WHERE id=?";
 		
-		query.add(Restrictions.eq("id", id));
+		queryPura.replace("?", String.valueOf(id) );
 		
-		List<ClienteTransfer> lista = (ArrayList<ClienteTransfer>) query.list();
+		Query query = entityManager.createQuery(queryPura);
 		
-		return (lista != null && !lista.isEmpty()) ? lista.get(0) : null;
+		List<ClienteTransfer> lista = query.getResultList();
+		
+		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
 	}
 	
 	@Override
-	public void borrar(Integer id, Session session) {
+	public void borrar(Integer id, EntityManager entityManager) {
 		
-		ClienteTransfer cliente = consultar(id, session);
+		ClienteTransfer cliente = consultar(id, entityManager);
 		
-		session.delete( cliente );
+		entityManager.remove(cliente);
 	}
 }

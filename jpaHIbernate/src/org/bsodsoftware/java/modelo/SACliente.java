@@ -1,5 +1,9 @@
 package org.bsodsoftware.java.modelo;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.bsodsoftware.java.integracion.daoimp.ClienteDAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,23 +13,17 @@ import org.hibernate.service.ServiceRegistryBuilder;
 
 public class SACliente {
 
-	private SessionFactory sessionFactory;
-	private ServiceRegistry serviceRegistry;
+	private EntityManagerFactory entityManagerFactory;
+	private EntityManager entityManager;
 	
 	public SACliente() {
-		
-		Configuration conf = new Configuration();
-		conf.configure();
-		
-		serviceRegistry = new ServiceRegistryBuilder().applySettings(conf.getProperties()).buildServiceRegistry();
-		
-		sessionFactory = conf.buildSessionFactory(serviceRegistry);
+		entityManagerFactory = Persistence.createEntityManagerFactory( "hibernate-unit" );
+		entityManager = entityManagerFactory.createEntityManager();
 	}
 	
 	public Integer crear(ClienteTransfer cliente) {
 		
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
+		entityManager.getTransaction().begin();
 		
 		Integer clienteID = new ClienteDAO().crear(cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), session);
 		
