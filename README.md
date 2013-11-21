@@ -19,4 +19,4 @@ Instalación
 Eclipse
 -------
 
-Importar el proyecto jpaHibernateTest, omitir japHibernateTestMaven.
+Importar el proyecto hibernateTest, omitir el resto hasta nuevo aviso.

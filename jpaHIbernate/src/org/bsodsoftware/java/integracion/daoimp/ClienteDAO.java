@@ -1,15 +1,11 @@
 package org.bsodsoftware.java.integracion.daoimp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
 
 import org.bsodsoftware.java.integracion.DAOinteface;
 import org.bsodsoftware.java.modelo.ClienteTransfer;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 
 public class ClienteDAO implements DAOinteface {
 	
@@ -34,9 +30,7 @@ public class ClienteDAO implements DAOinteface {
 	@Override
 	public ClienteTransfer consultar(Integer id, EntityManager entityManager) {
 		
-		CriteriaBuilder criteriaB = entityManager.getCriteriaBuilder();
-		
-		criteriaB.equ
+		List<ClienteTransfer> lista = entityManager.createNamedQuery("from clientes", ClienteTransfer.class).getResultList();
 		
 //		String queryPura = "SELECT * FROM clientes WHERE id=?";
 //		
@@ -45,8 +39,8 @@ public class ClienteDAO implements DAOinteface {
 //		Query query = entityManager.createQuery(queryPura);
 //		
 //		List<ClienteTransfer> lista = query.getResultList();
-//		
-//		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
+		
+		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
 	}
 	
 	@Override

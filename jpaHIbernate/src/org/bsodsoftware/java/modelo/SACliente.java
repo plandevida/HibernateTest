@@ -12,12 +12,12 @@ public class SACliente {
 	private EntityManager entityManager;
 	
 	public SACliente() {
-		entityManagerFactory = Persistence.createEntityManagerFactory( "hibernate-unit" );
-		entityManager = entityManagerFactory.createEntityManager();
+		entityManagerFactory = Persistence.createEntityManagerFactory("org.bsodsoftware.java");
 	}
 	
 	public Integer crear(ClienteTransfer cliente) {
 		
+		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
 		Integer clienteID = new ClienteDAO().crear(cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), entityManager);
@@ -30,6 +30,7 @@ public class SACliente {
 
 	public ClienteTransfer consultar(Integer id) {
 		
+		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
 		ClienteTransfer cliente = new ClienteDAO().consultar(id, entityManager);
@@ -42,6 +43,7 @@ public class SACliente {
 
 	public void editar(ClienteTransfer cliente) {
 		
+		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
 		new ClienteDAO().actualizar(cliente.getId(), cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), entityManager);
@@ -52,6 +54,7 @@ public class SACliente {
 
 	public void borrar(Integer id) {
 		
+		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
 		new ClienteDAO().borrar(id, entityManager);
