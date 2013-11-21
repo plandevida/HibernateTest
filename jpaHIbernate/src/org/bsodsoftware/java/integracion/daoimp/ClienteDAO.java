@@ -1,7 +1,5 @@
 package org.bsodsoftware.java.integracion.daoimp;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 
 import org.bsodsoftware.java.integracion.DAOinteface;
@@ -30,17 +28,9 @@ public class ClienteDAO implements DAOinteface {
 	@Override
 	public ClienteTransfer consultar(Integer id, EntityManager entityManager) {
 		
-		List<ClienteTransfer> lista = entityManager.createNamedQuery("from clientes", ClienteTransfer.class).getResultList();
+		ClienteTransfer cliente = entityManager.find(ClienteTransfer.class, id);
 		
-//		String queryPura = "SELECT * FROM clientes WHERE id=?";
-//		
-//		queryPura.replace("?", String.valueOf(id) );
-//		
-//		Query query = entityManager.createQuery(queryPura);
-//		
-//		List<ClienteTransfer> lista = query.getResultList();
-		
-		return (lista != null && !lista.isEmpty() ) ? lista.get(0) : null;
+		return cliente;
 	}
 	
 	@Override

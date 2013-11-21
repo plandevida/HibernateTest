@@ -12,7 +12,7 @@ public class SACliente {
 	private EntityManager entityManager;
 	
 	public SACliente() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("org.bsodsoftware.java");
+		entityManagerFactory = Persistence.createEntityManagerFactory("aaaaaa");
 	}
 	
 	public Integer crear(ClienteTransfer cliente) {
