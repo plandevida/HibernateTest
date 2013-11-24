@@ -6,10 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.eclipse.persistence.annotations.OptimisticLocking;
+import org.eclipse.persistence.annotations.OptimisticLockingType;
+
 import com.sun.istack.internal.NotNull;
 
 @Entity
 @Table(name = "clientes")
+@OptimisticLocking(type = OptimisticLockingType.CHANGED_COLUMNS)
 public class ClienteTransfer {
 
 	@Id

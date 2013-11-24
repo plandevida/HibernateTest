@@ -12,7 +12,7 @@ public class SACliente {
 	private EntityManager entityManager;
 	
 	public SACliente() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("aaaaaa");
+		entityManagerFactory = Persistence.createEntityManagerFactory("EclipseLink");
 	}
 	
 	public Integer crear(ClienteTransfer cliente) {
