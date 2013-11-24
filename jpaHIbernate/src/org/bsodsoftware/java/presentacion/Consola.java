@@ -24,11 +24,11 @@ public class Consola {
 		
 		String accion = "";
 		
-		while ( accion != null && !"q".equalsIgnoreCase(accion) ) {
+		while ( accion != null && !"q".equalsIgnoreCase(accion.trim().toLowerCase()) ) {
 			
 			accion = lector.readLine();
 			
-			acciones(accion);
+			acciones(accion.trim().toLowerCase());
 		}
 	}
 	
