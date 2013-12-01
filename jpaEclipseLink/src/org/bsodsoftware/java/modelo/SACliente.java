@@ -45,7 +45,7 @@ public class SACliente {
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		new ClienteDAO().actualizar(cliente.getId(), cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), entityManager);
+		new ClienteDAO().actualizar(cliente, entityManager);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();

@@ -16,9 +16,7 @@ public class ClienteDAO implements DAOinteface {
 	}
 	
 	@Override
-	public void actualizar(Long id, String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
-		
-		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, id);
+	public void actualizar(ClienteTransfer cliente, EntityManager entityManager) {
 		
 		entityManager.merge(cliente);
 	}
