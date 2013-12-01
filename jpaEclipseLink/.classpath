@@ -6,7 +6,11 @@
 	<classpathentry kind="lib" path="lib/jpa/javax.persistence.source_2.1.0.v201304241213.jar"/>
 	<classpathentry kind="lib" path="lib/jpa/org.eclipse.persistence.jpa.modelgen_2.5.1.v20130918-f2b9fc5.jar"/>
 	<classpathentry kind="lib" path="lib/jpa/org.eclipse.persistence.jpa.modelgen.source_2.5.1.v20130918-f2b9fc5.jar"/>
-	<classpathentry kind="lib" path="lib/jpa/org.eclipse.persistence.jpars_2.5.1.v20130918-f2b9fc5.jar"/>
+	<classpathentry kind="lib" path="lib/jpa/org.eclipse.persistence.jpars_2.5.1.v20130918-f2b9fc5.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/dserrano/Desktop/eclipselink/eclipselink-jpars-javadocs.zip!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="lib/jpa/org.eclipse.persistence.jpars.source_2.5.1.v20130918-f2b9fc5.jar"/>
 	<classpathentry kind="lib" path="lib/moxy/com.sun.tools.xjc_2.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/moxy/com.sun.xml.bind_2.2.0.v201004141950.jar"/>
@@ -15,6 +19,12 @@
 	<classpathentry kind="lib" path="lib/moxy/javax.xml.bind_2.2.0.v201105210648.jar"/>
 	<classpathentry kind="lib" path="lib/moxy/javax.xml.stream_1.0.1.v201004272200.jar"/>
 	<classpathentry kind="lib" path="lib/sdo/commonj.sdo_2.1.1.v201112051852.jar"/>
-	<classpathentry kind="lib" path="lib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="lib/eclipselink.jar" sourcepath="/Users/dserrano/Desktop/eclipselink/jlib/eclipselink-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/Users/dserrano/Desktop/eclipselink/eclipselink-javadocs.zip!/"/>
+			<attribute name="source_encoding" value="UTF-8"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.27-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

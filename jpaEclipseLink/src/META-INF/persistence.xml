@@ -15,8 +15,11 @@
 	     <property name="javax.persistence.jdbc.password" value="" />
 		 
 <!-- 		 Borrar y crear la BBDD cada vez que se arranca la aplicación -->
-<!-- 		 <property name="eclipselik.ddl-generator" value="drop-and-create-tables"/> -->
-<!-- 		 <property name="eclipselink.ddl-generator.output-mode" value="database"/> -->
+		 <property name="eclipselink.ddl-generator" value="drop-and-create-tables"/>
+		 <property name="eclipselink.ddl-generator.output-mode" value="both"/>
+		 
+		 <property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL_ddlGeneration.jdbc"/>
+		 <property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL_ddlGeneration.jdbc"/>
 	 </properties>
 	</persistence-unit>
 </persistence>

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.bsodsoftware.java.presentacion.Consola;
 
-public class PruebaHibernate {
+public class PruebaEclipseLink {
 
 	public static void main(String[] args) {
 	

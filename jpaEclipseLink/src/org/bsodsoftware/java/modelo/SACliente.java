@@ -15,20 +15,19 @@ public class SACliente {
 		entityManagerFactory = Persistence.createEntityManagerFactory("EclipseLink");
 	}
 	
-	public Integer crear(ClienteTransfer cliente) {
-		
+	public Long crearEntity(ClienteTransfer cliente) {
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		
-		Integer clienteID = new ClienteDAO().crear(cliente.getDNI(), cliente.getNombre(), cliente.getTelefono(), cliente.getDireccion(), entityManager);
+		new ClienteDAO().crearEntity(cliente, entityManager);
 		
 		entityManager.getTransaction().commit();
 		entityManager.close();
 		
-		return clienteID;
+		return cliente.getId();
 	}
 
-	public ClienteTransfer consultar(Integer id) {
+	public ClienteTransfer consultar(Long id) {
 		
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
@@ -52,7 +51,7 @@ public class SACliente {
 		entityManager.close();
 	}
 
-	public void borrar(Integer id) {
+	public void borrar(Long id) {
 		
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();

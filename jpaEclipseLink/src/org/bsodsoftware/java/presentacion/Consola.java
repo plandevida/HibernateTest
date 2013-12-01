@@ -57,12 +57,12 @@ public class Consola {
 		System.out.println("Introduzca el telefono del cliente: ");
 		String telefono = lector.readLine();
 		
-		System.out.println("Introduzca la direcci��n del cliente: ");
+		System.out.println("Introduzca la dirección del cliente: ");
 		String direccion = lector.readLine();
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
 		
-		Integer idCliente = factoria.getSACliente().crear(cliente);
+		Long idCliente = factoria.getSACliente().crearEntity(cliente);
 		
 		System.out.println("CLIENTE CREADO con id: " + idCliente);
 	}
@@ -74,9 +74,9 @@ public class Consola {
 		System.out.println("Introduzca el ID del cliente: ");
 		String id = lector.readLine();
 		
-		Integer idCliente = null;
+		Long idCliente = null;
 		try {
-			idCliente = Integer.valueOf(id);
+			idCliente = Long.valueOf(id);
 		}
 		catch (NumberFormatException ne) {
 			ne.printStackTrace();
@@ -94,9 +94,9 @@ public class Consola {
 		System.out.println("Introduzca el ID del cliente a modificar: ");
 		String id_cadena = lector.readLine();
 		
-		Integer idCliente = null;
+		Long idCliente = null;
 		try {
-			idCliente = Integer.valueOf(id_cadena);
+			idCliente = Long.valueOf(id_cadena);
 		}
 		catch (NumberFormatException ne) {
 			ne.printStackTrace();
@@ -111,7 +111,7 @@ public class Consola {
 		System.out.println("Introduzca el telefono del cliente: ");
 		String telefono = lector.readLine();
 		
-		System.out.println("Introduzca la direcci��n del cliente: ");
+		System.out.println("Introduzca la dirección del cliente: ");
 		String direccion = lector.readLine();
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, idCliente);
@@ -128,9 +128,9 @@ public class Consola {
 		System.out.println("Introduzca el ID del cliente: ");
 		String id = lector.readLine();
 		
-		Integer idCliente = null;
+		Long idCliente = null;
 		try {
-			idCliente = Integer.valueOf(id);
+			idCliente = Long.valueOf(id);
 		}
 		catch (NumberFormatException ne) {
 			ne.printStackTrace();

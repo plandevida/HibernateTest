@@ -3,6 +3,7 @@ package org.bsodsoftware.java.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,8 +18,8 @@ import com.sun.istack.internal.NotNull;
 public class ClienteTransfer {
 
 	@Id
-	@GeneratedValue
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
 	@Column(name = "nombre", nullable = false)
 	private String nombre;
@@ -30,10 +31,10 @@ public class ClienteTransfer {
 	@Column(name = "dni", nullable = false)
 	private String DNI;
 	
-	// Constructor para hibernate
+	// Constructor para EclipseLink
 	public ClienteTransfer() {	}
 	
-	public ClienteTransfer(String DNI, String nombre, String telefono, String direccion, Integer id) {
+	public ClienteTransfer(String DNI, String nombre, String telefono, String direccion, Long id) {
 		
 		this.DNI = DNI;
 		this.nombre = nombre;
@@ -66,10 +67,10 @@ public class ClienteTransfer {
 	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	

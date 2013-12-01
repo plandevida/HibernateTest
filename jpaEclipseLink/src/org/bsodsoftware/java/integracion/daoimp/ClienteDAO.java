@@ -8,17 +8,15 @@ import org.bsodsoftware.java.modelo.ClienteTransfer;
 public class ClienteDAO implements DAOinteface {
 	
 	@Override
-	public Integer crear(String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
+	public Long crearEntity(ClienteTransfer cliente, EntityManager entity) {
 		
-		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, null);
-		
-		entityManager.persist(cliente);
+		entity.persist(cliente);
 		
 		return cliente.getId();
 	}
 	
 	@Override
-	public void actualizar(Integer id, String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
+	public void actualizar(Long id, String DNI, String nombre, String telefono, String direccion, EntityManager entityManager) {
 		
 		ClienteTransfer cliente = new ClienteTransfer(DNI, nombre, telefono, direccion, id);
 		
@@ -26,7 +24,7 @@ public class ClienteDAO implements DAOinteface {
 	}
 	
 	@Override
-	public ClienteTransfer consultar(Integer id, EntityManager entityManager) {
+	public ClienteTransfer consultar(Long id, EntityManager entityManager) {
 		
 		ClienteTransfer cliente = entityManager.find(ClienteTransfer.class, id);
 		
@@ -34,7 +32,7 @@ public class ClienteDAO implements DAOinteface {
 	}
 	
 	@Override
-	public void borrar(Integer id, EntityManager entityManager) {
+	public void borrar(Long id, EntityManager entityManager) {
 		
 		ClienteTransfer cliente = consultar(id, entityManager);
 		
